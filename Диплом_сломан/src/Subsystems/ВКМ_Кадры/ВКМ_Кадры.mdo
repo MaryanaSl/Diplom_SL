@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="de79156e-a761-4822-89c3-61dba98f3264">
+  <name>ВКМ_Кадры</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кадры</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <includeInCommandInterface>true</includeInCommandInterface>
+  <content>Role.ВКМ_ОбслуживаниеКлиентов</content>
+  <content>CommonModule.ВКМ_ИнтеграцияТГ</content>
+  <content>CommonModule.ВКМ_РаботаСФормами</content>
+  <content>Catalog.ВКМ_ГрафикиРаботы</content>
+  <content>Catalog.ВКМ_Подразделения</content>
+  <content>Catalog.ВКМ_ФизическиеЛица</content>
+  <content>Document.ВКМ_ГрафикОтпусков</content>
+  <content>Report.ВКМ_ВыработкаСпециалистов</content>
+  <content>Report.ВКМ_РасходЗапланированныхОтпусков</content>
+  <content>DataProcessor.ВКМ_ЗаполнениеГрафика</content>
+  <content>InformationRegister.ВКМ_ПланГрафикаОтпусков</content>
+  <content>InformationRegister.ВКМ_ГрафикиРаботы</content>
+</mdclass:Subsystem>

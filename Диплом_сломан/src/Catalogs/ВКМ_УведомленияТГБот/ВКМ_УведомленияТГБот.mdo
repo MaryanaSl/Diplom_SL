@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a923d214-2f0c-45c0-bf8d-6ca26a28fa0d">
+  <producedTypes>
+    <objectType typeId="365cf926-5ab6-4ad8-a897-a9e03846b0cd" valueTypeId="99be524b-8b03-416b-aa56-75a0063916a3"/>
+    <refType typeId="bc390405-366c-4df8-8679-0e7ab4c5ff40" valueTypeId="a247ce6f-c6cc-48de-9322-99e0c45c0d3c"/>
+    <selectionType typeId="2d7a6527-35ee-44d1-b8a1-b1b8fcadacce" valueTypeId="2f8ce56c-e8cd-4eb5-98d7-ce81e92b3145"/>
+    <listType typeId="98ee7837-dfc6-4239-93df-2f8d420ee712" valueTypeId="41ce1e12-f088-4919-acbb-d983d6ef2435"/>
+    <managerType typeId="d7adad13-b767-4bfe-b1da-d5693aafd58b" valueTypeId="81989a67-010c-469f-b031-125717937066"/>
+  </producedTypes>
+  <name>ВКМ_УведомленияТГБот</name>
+  <synonym>
+    <key>ru</key>
+    <value>Уведомления ТГ-Бот</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <defaultListForm>Catalog.ВКМ_УведомленияТГБот.Form.ФормаСписка</defaultListForm>
+  <attributes uuid="ee42fc71-0990-4d24-b773-69b0d3d438a0">
+    <name>Текст</name>
+    <synonym>
+      <key>ru</key>
+      <value>Текст</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <forms uuid="5986a4a6-1523-4591-b3f8-fb6db0e4c069">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:Catalog>

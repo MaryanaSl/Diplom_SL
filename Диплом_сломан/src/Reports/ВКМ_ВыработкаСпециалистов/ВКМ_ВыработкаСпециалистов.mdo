@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1a21891f-278c-472f-bd68-a586c53cdaae">
+  <producedTypes>
+    <objectType typeId="940abc81-41e2-4c0f-9be9-6f9858621332" valueTypeId="2a42a9cd-f06a-4f7b-a316-acfc67667306"/>
+    <managerType typeId="6bd9875b-6fe9-417f-bc6c-65998eb5aecd" valueTypeId="140c9847-2dcd-49c0-a5a1-f27e54d971a9"/>
+  </producedTypes>
+  <name>ВКМ_ВыработкаСпециалистов</name>
+  <synonym>
+    <key>ru</key>
+    <value>Выработка специалистов</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <mainDataCompositionSchema>Report.ВКМ_ВыработкаСпециалистов.Template.ОсновнаяСхемаКомпоновкиДанных</mainDataCompositionSchema>
+  <explanation>
+    <key>ru</key>
+    <value>Отчёт должен показывать, сколько часов за выбранный период отработал выбранный специалист и какая сумма ему за этот период начислена в виде процента от выплат клиента.</value>
+  </explanation>
+  <templates uuid="e95675e7-176f-4375-baea-a7e74ca60340">
+    <name>ОсновнаяСхемаКомпоновкиДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основная схема компоновки данных</value>
+    </synonym>
+    <templateType>DataCompositionSchema</templateType>
+  </templates>
+</mdclass:Report>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:ChartOfCalculationTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6a43d0f1-384b-43da-8aef-9a2c7ec15fb4">
+  <producedTypes>
+    <objectType typeId="de65bcde-6877-4edc-80eb-031e6b65be02" valueTypeId="ff146858-1a36-4fd1-84e9-35f4614315b9"/>
+    <refType typeId="c8d2c41b-d975-456b-b49e-aa2e668d5c47" valueTypeId="592c903d-b5ef-4efb-a188-34311fdee74f"/>
+    <selectionType typeId="b5fdda05-4171-409b-a503-20e4aa53fc29" valueTypeId="754efff4-1ccf-4cec-866f-504d816ba593"/>
+    <listType typeId="bad868b2-4f7c-43a1-9baf-8deb6f61ab84" valueTypeId="7f2213a3-1d77-46d9-bc1b-d101b023355e"/>
+    <managerType typeId="f717323a-73a7-49e3-8d4e-9fb52c5e11dd" valueTypeId="c246b20d-9784-4c3f-b043-bc958126adce"/>
+    <displacingCalculationTypesType typeId="f32e777c-a60c-4a3f-98b2-329cadf3ce40" valueTypeId="44be98bd-1fa5-4b57-94b9-8db58bb11bf1"/>
+    <displacingCalculationTypesRowType typeId="c6d2fc58-75b2-4470-a41a-a5521f70d74b" valueTypeId="f9fc35f8-8bdc-4217-a62d-e05352b61aad"/>
+    <baseCalculationTypesType typeId="8fcc7fc4-4111-429e-8403-f223bf8f55e4" valueTypeId="a42eeedc-795e-4c83-a7b7-72198cf54967"/>
+    <baseCalculationTypesRowType typeId="3673ec42-020a-45bf-9629-6397e244ca60" valueTypeId="9636308e-e0a0-4a5a-b3be-296b1e0bd954"/>
+    <leadingCalculationTypesType typeId="4c428682-581e-4173-9b66-a79bcd9020d3" valueTypeId="8d09dbc8-4122-4bd0-b7cf-0252f96158d5"/>
+    <leadingCalculationTypesRowType typeId="36c369f1-93d0-4ba2-ac7e-d834c79cb701" valueTypeId="ea2a27c2-9ff6-4b67-98ab-18375def5864"/>
+  </producedTypes>
+  <name>ВКМ_ОсновныеНачисления</name>
+  <synonym>
+    <key>ru</key>
+    <value>Основные начисления</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.StandardAttribute.Code</inputByString>
+  <inputByString>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>DontUse</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <codeLength>9</codeLength>
+  <descriptionLength>40</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <dependenceOnCalculationTypes>OnActionPeriod</dependenceOnCalculationTypes>
+  <baseCalculationTypes>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления</baseCalculationTypes>
+  <baseCalculationTypes>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления</baseCalculationTypes>
+  <actionPeriodUse>true</actionPeriodUse>
+  <predefined>
+    <items id="aff48281-6530-4cff-a2e2-1fe10ec14d2f">
+      <name>Оклад</name>
+      <description>Оклад</description>
+      <code xsi:type="core:StringValue">
+        <value>1</value>
+      </code>
+      <displaced>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.Отпуск</displaced>
+      <leading>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.Отпуск</leading>
+    </items>
+    <items id="fc7d69cf-6f05-4334-8ff8-04553b0987a8">
+      <name>Отпуск</name>
+      <description>Отпуск</description>
+      <code xsi:type="core:StringValue">
+        <value>2</value>
+      </code>
+      <base>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.Оклад</base>
+      <base>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления.ПремияПроцентом</base>
+      <base>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления.ПремияСуммой</base>
+      <leading>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.Оклад</leading>
+      <leading>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления.ПремияПроцентом</leading>
+      <leading>ChartOfCalculationTypes.ВКМ_ДополнительныеНачисления.ПремияСуммой</leading>
+    </items>
+  </predefined>
+</mdclass:ChartOfCalculationTypes>
