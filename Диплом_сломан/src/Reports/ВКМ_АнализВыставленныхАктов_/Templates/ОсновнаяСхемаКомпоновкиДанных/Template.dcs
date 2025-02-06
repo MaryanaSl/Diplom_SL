@@ -15,59 +15,52 @@
 			<field>Договор</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаВсего</dataPath>
-			<field>СуммаВсего</field>
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РаботыСпециалистаПоДокументуОбслуживание</dataPath>
+			<field>РаботыСпециалистаПоДокументуОбслуживание</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма всего</v8:content>
+					<v8:content>Работы специалиста по документу обслуживание</v8:content>
 				</v8:item>
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>РаботыСпециалиста</dataPath>
-			<field>РаботыСпециалиста</field>
+			<dataPath>РаботыСпециалистаПоАктам</dataPath>
+			<field>РаботыСпециалистаПоАктам</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Работы специалиста</v8:content>
+					<v8:content>Работы специалиста по актам</v8:content>
 				</v8:item>
 			</title>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент КАК Клиент,
-	ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор КАК Договор,
-	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.КоличествоЧасовОборот, 0) КАК КоличествоЧасовОборот,
-	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.СуммаКОплатеОборот, 0) КАК СуммаКОплатеОборот
-ПОМЕСТИТЬ ВременнаяТаблица
+	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент, ПродажиОбороты.Контрагент) КАК Клиент,
+	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор, ПродажиОбороты.Договор) КАК Договор,
+	ЕСТЬNULL(ВКМ_ВыполненныеКлиентуРаботыОбороты.СуммаКОплатеОборот, 0) КАК РаботыСпециалистаПоДокументуОбслуживание,
+	ЕСТЬNULL(ПродажиОбороты.СуммаОборот, 0) КАК РаботыСпециалистаПоАктам
 ИЗ
 	РегистрНакопления.ВКМ_ВыполненныеКлиентуРаботы.Обороты(,,,) КАК ВКМ_ВыполненныеКлиентуРаботыОбороты
-;
-
-////////////////////////////////////////////////////////////////////////////////
-ВЫБРАТЬ
-	ВременнаяТаблица.Клиент КАК Клиент,
-	ВременнаяТаблица.Договор КАК Договор,
-	МИНИМУМ(ВКМ_ВыполненныеКлиентуРаботы.СуммаАбонентскойПлаты + ВременнаяТаблица.СуммаКОплатеОборот) КАК СуммаВсего,
-	ВременнаяТаблица.СуммаКОплатеОборот КАК РаботыСпециалиста
-ИЗ
-	ВременнаяТаблица КАК ВременнаяТаблица
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ВКМ_ВыполненныеКлиентуРаботы КАК ВКМ_ВыполненныеКлиентуРаботы
-		ПО (ВременнаяТаблица.Клиент = ВКМ_ВыполненныеКлиентуРаботы.Клиент)
-		И (ВременнаяТаблица.Договор = ВКМ_ВыполненныеКлиентуРаботы.Договор)
-СГРУППИРОВАТЬ ПО
-	ВременнаяТаблица.Клиент,
-	ВременнаяТаблица.Договор,
-	ВременнаяТаблица.СуммаКОплатеОборот</query>
+		ПОЛНОЕ СОЕДИНЕНИЕ РегистрНакопления.Продажи.Обороты КАК ПродажиОбороты
+		ПО ВКМ_ВыполненныеКлиентуРаботыОбороты.Клиент = ПродажиОбороты.Контрагент
+		И ВКМ_ВыполненныеКлиентуРаботыОбороты.Договор = ПродажиОбороты.Договор</query>
 	</dataSet>
 	<totalField>
-		<dataPath>РаботыСпециалиста</dataPath>
-		<expression>Сумма(РаботыСпециалиста)</expression>
+		<dataPath>РаботыСпециалистаПоАктам</dataPath>
+		<expression>Сумма(РаботыСпециалистаПоАктам)</expression>
 	</totalField>
 	<totalField>
-		<dataPath>СуммаВсего</dataPath>
-		<expression>Сумма(СуммаВсего)</expression>
+		<dataPath>РаботыСпециалистаПоДокументуОбслуживание</dataPath>
+		<expression>Сумма(РаботыСпециалистаПоДокументуОбслуживание)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -83,6 +76,7 @@
 				<v8:DateFractions>DateTime</v8:DateFractions>
 			</v8:DateQualifiers>
 		</valueType>
+		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<expression>&amp;Период.ДатаНачала</expression>
 		<availableAsField>false</availableAsField>
@@ -102,6 +96,7 @@
 				<v8:DateFractions>DateTime</v8:DateFractions>
 			</v8:DateQualifiers>
 		</valueType>
+		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<expression>&amp;Период.ДатаОкончания</expression>
 		<availableAsField>false</availableAsField>
@@ -127,23 +122,16 @@
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаВсего</dcsset:field>
+					<dcsset:field>РаботыСпециалистаПоАктам</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>РаботыСпециалиста</dcsset:field>
-					<dcsset:lwsTitle>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>(в т.ч. работы специалиста)</v8:content>
-						</v8:item>
-					</dcsset:lwsTitle>
+					<dcsset:field>РаботыСпециалистаПоДокументуОбслуживание</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:left xsi:type="dcscor:Field">Клиент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:nil="true"/>
 					<dcsset:userSettingID>622fdb7c-09bc-4b0b-a7db-544d43051ebd</dcsset:userSettingID>
 				</dcsset:item>
 			</dcsset:filter>
@@ -185,6 +173,8 @@
 						<dcsset:field>Клиент</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 					</dcsset:item>
 				</dcsset:groupItems>
 				<dcsset:order>
@@ -199,6 +189,8 @@
 							<dcsset:field>Договор</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 						</dcsset:item>
 					</dcsset:groupItems>
 					<dcsset:order>

@@ -15,4 +15,5 @@
   <content>Catalog.ВКМ_УведомленияТГБот</content>
   <content>Report.ВКМ_ВыработкаСпециалистов</content>
   <content>AccumulationRegister.ВКМ_ВыполненныеСотрудникомРаботы</content>
+  <content>InformationRegister.ВКМ_УсловияОплатыСотрудников</content>
 </mdclass:Subsystem>
